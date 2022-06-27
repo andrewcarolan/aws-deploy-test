@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, "../../client/build")));
 app.use("/api/quotes", quotes);
 
 app.get("*", (req, res) => {
+  console.log("Accessed catch-all route.");
   res.sendFile("index.html", {
     root: path.join(__dirname, "../../client/build"),
   });
