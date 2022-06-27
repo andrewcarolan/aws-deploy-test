@@ -14,14 +14,7 @@ const quotes = require("./routes/quotes");
 app.use(express.static(path.join(__dirname, "../../client/build")));
 app.use("/api/quotes", quotes);
 
-app.get("*", (req, res) => {
-  console.log("Accessed catch-all route.");
-  res.sendFile("index.html", {
-    root: path.join(__dirname, "../../client/build"),
-  });
-});
-
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Express listening on port ${port}`);
   console.log("static path: ", path.join(__dirname, "../../client/build"));
 });
