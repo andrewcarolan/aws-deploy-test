@@ -8,7 +8,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    axios.get("http://localhost:8080/quotes").then((response) => {
+    axios.get("/api/quotes").then((response) => {
       this.setState({
         quotes: response.data,
       });

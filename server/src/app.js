@@ -11,13 +11,10 @@ app.use(cors());
 
 const quotes = require("./routes/quotes");
 
-app.use("/static", express.static(path.join(__dirname, "assets")));
-app.use("/quotes", quotes);
-
-app.get("/", (_, res) => {
-  res.send("Hello, Express!");
-});
+app.use(express.static(path.join(__dirname, "../../client/build")));
+app.use("/api/quotes", quotes);
 
 app.listen(port, () => {
   console.log(`Express listening on port ${port}`);
+  console.log("static path: ", path.join(__dirname, "../../client/build"));
 });
